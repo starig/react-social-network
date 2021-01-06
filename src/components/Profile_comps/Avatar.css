@@ -1,0 +1,15 @@
+.avatar--img {
+    height: 300px;
+}
+
+.btn--edit {
+    background-color: #686868;
+    width: 100%;
+    color: #b1b1b1;
+}
+
+.btn--edit:hover {
+    background-color: #919191;
+    cursor: pointer;
+    color:#2c2c2cb4;
+}

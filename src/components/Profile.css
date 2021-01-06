@@ -1,0 +1,24 @@
+.content {
+    display: grid;
+    grid-template-areas: 
+    'avatar userinfo'
+    'friends posts'
+    ;
+
+    grid-template-columns: 1fr 4fr;
+    padding: 10px;
+}
+
+.UserInfo {
+    grid-area: userinfo;
+}
+
+.Posts {
+    grid-area: posts;
+}
+
+.avatar {
+    grid-area: avatar;
+    border: 1px solid;
+    padding: 5px;
+}

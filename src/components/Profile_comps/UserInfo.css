@@ -1,0 +1,64 @@
+.UserInfo {
+    display: grid;
+
+    grid-template-areas: 
+    'ui-header'
+    'ui-main'
+    'ui-footer'
+    ;
+    padding: 15px;
+}
+
+.UserInfo--header {
+    display: grid;
+    grid-area: ui-header;
+    grid-template-columns: 11fr 1fr;
+    border-bottom: 2px solid rgb(168, 168, 168);
+}
+
+.user--name {
+    font-size: 24px;
+}
+
+.user--subtitle {
+    font-size: 18px;
+}
+.user--status {
+    color: rgb(88, 88, 88);
+}
+
+.UserInfo--main {
+    grid-area: ui-main;
+    padding-top: 10px;
+}
+
+.UserInfo--ul {
+    grid-template-rows: repeat(1, 1fr);
+}
+
+.UserInfo--li {
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+
+.UserInfo--li--title {
+    justify-self: start;
+    color: rgb(88, 88, 88);
+}
+
+.UserInfo--footer {
+    display: grid;
+    grid-area: ui-footer;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.UserInfo--footer--item {
+    text-decoration: none;
+    text-align: center;
+    color: rgb(92, 87, 87);
+}
+
+.item--count {
+    font-size: 23px;
+    color: rgb(41, 80, 95);
+}
