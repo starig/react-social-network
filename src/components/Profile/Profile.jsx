@@ -2,11 +2,11 @@ import React from 'react';
 import Avatar from './Profile_comps/Avatar';
 import Posts from './Profile_comps/Posts';
 import UserInfo from './Profile_comps/UserInfo';
-import './Profile.css';
+import classes from './Profile.module.css';
 
 const Profile = () => {
     return (
-        <div className="content">
+        <div className={`${classes.profile}`}>
             {/* <img src="https://theinpaint.com/images/example-1-2.jpg"></img> */}
             {/* <div className="userInfo">
                 avatar + description

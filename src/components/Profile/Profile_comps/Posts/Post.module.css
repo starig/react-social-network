@@ -1,0 +1,104 @@
+.post {
+    display: grid;
+    grid-template-areas: 
+    'header'
+    'content'
+    'footer'
+    ;
+    height: 200px;
+    grid-template-rows: 20% 60% 20%;
+    border: 1px solid rgb(63, 148, 245);
+    padding: 4px 0;
+    margin: 10px 0;
+}
+
+.header {
+    display: grid;
+    grid-area: header;
+    grid-template-areas: 
+    'avatar header__info'
+    ;
+    grid-template-columns: 1fr 5fr;
+}
+
+.header__info {
+    display: grid;
+    grid-area: header__info;
+    justify-self: start;
+    grid-template-areas: 
+    'username'
+    'date'
+    ;
+
+    grid-template-rows: 1fr 3fr;
+}
+.avatar {
+    grid-area: avatar;
+    justify-self: end;
+    padding-right: 15px;
+}
+
+.avatarImg {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.username {
+    grid-area: username;
+}
+
+.date {
+    grid-area: date;
+}
+
+.content {
+    grid-area: content;
+    justify-self: center;
+}
+
+
+/* Footer */
+
+.footer {
+    grid-area: footer;
+    display: grid;
+    width: 90%;
+    justify-self: center;
+    border-top: 1px solid rgb(190, 190, 190);
+    grid-template-areas: 'like comment';
+    grid-template-columns: 1fr 1fr 5fr;
+}
+
+.postSvgSection {
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-template-areas: 'postSvg svgCounter';
+    grid-template-columns: 1fr 1fr;
+}
+
+.postSvg {
+    height: 20px;
+    transition: height .1s ease;
+    grid-area: postSvg;
+    justify-self: start;
+}
+
+.postSvg:hover {
+    cursor: pointer;
+    
+}
+
+.svgCounter {
+    grid-area: svgCounter;
+    justify-self: center;
+}
+
+.like {
+    grid-area: like;
+}
+
+.comment {
+    grid-area: comment;
+}

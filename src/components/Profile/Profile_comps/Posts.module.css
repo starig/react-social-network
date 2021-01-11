@@ -1,0 +1,42 @@
+.Posts {
+    display: grid;
+    padding: 5px 10px;
+}
+
+.Posts__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.Posts__new {
+    border: 3px solid;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+}
+
+.Posts__new__title {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.Posts__new__subtitle {
+    border: 1px solid rgb(48, 93, 138);
+    padding: 2px;
+    margin-bottom: 15px;
+}
+
+.btn__send {
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    height: 20px;
+    border: 2px solid black;
+    margin: 5px 0;
+    width: 40px;
+    cursor: pointer;
+}
+
+.btn__send:hover {
+    background-color: rgb(19, 204, 102);
+    color: white;
+}
