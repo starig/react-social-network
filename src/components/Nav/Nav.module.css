@@ -1,9 +1,16 @@
-.sidebar {
+.nav {
     grid-area: n;
-    background-color: rgb(231, 87, 87);
+    padding: 20px;
+    border: 1px solid #686868;
+    border-radius: 5px;
+    height: 600px;
 }
 
 .item__link {
     text-decoration: none;
     color: black;
+}
+
+.item a.active {
+    color: cornflowerblue;
 }

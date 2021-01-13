@@ -1,0 +1,74 @@
+.dialogs {
+    display: grid;
+    grid-template-areas:
+    'dialogs messages'
+    ;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 15px;
+}
+
+.dialog_items {
+    grid-area: dialogs;
+}
+
+
+
+/* Messages */
+
+.messages {
+    grid-area: messages;
+    height: 80vh;
+    display: grid;
+    grid-template-areas:
+    'messagesItems'
+    'sendMessage'
+    ;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10fr 1fr;
+}
+
+.messages__items {
+
+}
+
+/* Messages sendMessage */
+
+.sendMessage {
+    grid-area: sendMessage;
+    display: grid;
+    grid-template-areas:
+    'sendInput sendButton'
+    ;
+    grid-template-columns: 7fr 1fr;
+    padding: 5px 0;
+}
+
+.sendInput {
+    grid-area: sendInput;
+    height: 30px;
+    border: 1px solid #686868;
+    align-self: center;
+    justify-self: center;
+    width: 100%;
+}
+
+.sendButton {
+    grid-area: sendButton;
+    align-self: center;
+    justify-self: center;
+}
+
+.sendButton:hover {
+    cursor: pointer;
+}
+
+.sendImg {
+    height: 30px;
+    width: 30px;
+}
+
+/* !Messages sendMessage */
+
+
+
+/* ! Messages */
