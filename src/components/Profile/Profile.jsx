@@ -4,12 +4,14 @@ import Posts from './Profile_comps/Posts';
 import UserInfo from './Profile_comps/UserInfo';
 import classes from './Profile.module.css';
 
-const Profile = () => {
+const Profile = (props) => {
+
+
     return (
         <div className={`${classes.profile}`}>
             <Avatar />
             <UserInfo />
-            <Posts />
+            <Posts postsData={props.postsData} />
         </div>
     );
 }
