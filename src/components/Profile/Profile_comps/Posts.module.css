@@ -21,10 +21,17 @@
 }
 
 .Posts__new__subtitle {
-    border: 1px solid #686868;
+    /*border: 1px solid #686868;*/
     border-radius: 5px;
     padding: 2px;
     margin-bottom: 15px;
+}
+
+.Post__input {
+    width: 500px;
+    height: 40px;
+    border: 1px solid #686868;
+    border-radius: 5px;
 }
 
 .btn__send {

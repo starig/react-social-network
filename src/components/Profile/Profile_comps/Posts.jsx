@@ -16,7 +16,7 @@ const Posts = (props) => {
                 <div className={`${classes.Posts__input}`} >
                     <div className={`${classes.Posts__new__title}`}>New post</div>
                     <div className={`${classes.Posts__new__subtitle}`} >
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, nisi.
+                        <input className={`${classes.Post__input}`} placeholder={`It is my new post!`} />
                     </div>
                     <div className={`${mainClasses.btn} ${classes.btn__send}`}>send</div>
                 </div>

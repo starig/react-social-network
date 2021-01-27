@@ -1,0 +1,43 @@
+.messages {
+
+}
+.message {
+    padding: 5px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-areas:
+    'avatar name messageDate'
+    'avatar message message'
+    ;
+    grid-template-columns: 1fr 4fr 1fr;
+    border: 1px solid #919191;
+    border-radius: 5px;
+    color: black;
+    max-width: 90%;
+}
+
+
+.messageText {
+    grid-area: message;
+
+}
+
+.messageDate {
+    grid-area: messageDate;
+}
+
+.name {
+    grid-area: name;
+    justify-self: start;
+}
+
+.avatar {
+    grid-area: avatar;
+    justify-self: center;
+}
+
+.avatarImg {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}

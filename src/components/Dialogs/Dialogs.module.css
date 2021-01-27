@@ -28,7 +28,7 @@
 }
 
 .messages__items {
-
+    align-self: end;
 }
 
 /* Messages sendMessage */
