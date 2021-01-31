@@ -11,7 +11,11 @@ const Profile = (props) => {
         <div className={`${classes.profile}`}>
             <Avatar />
             <UserInfo />
-            <Posts postsData={props.state.postsData} />
+            <Posts postsData={props.state.postsData}
+                   addPost={props.addPost}
+                   newPostText={props.newPostText}
+                   updateNewPostText={props.updateNewPostText}
+            />
         </div>
     );
 }

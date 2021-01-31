@@ -13,6 +13,18 @@ const Dialogs = (props) => {
                                                                             message={message.message}
                                                                             avatarSrc={message.avatarSrc}/>);
 
+    let newMessageElement = React.createRef();
+
+    let sendMessage = () => {
+        props.sendMessage();
+        props.updateNewMessage('');
+    }
+
+    let updateNewMessage = () => {
+        let text = newMessageElement.current.value;
+        props.updateNewMessage(text);
+    }
+
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialog_items}>
@@ -23,8 +35,11 @@ const Dialogs = (props) => {
                     {messagesElements}
                 </div>
                 <footer className={classes.sendMessage}>
-                    <input className={classes.sendInput} placeholder="Write a message..."/>
-                    <div className={classes.sendButton}>
+                    <input className={classes.sendInput}
+                           ref={newMessageElement}
+                           value={props.newMessageText}
+                           placeholder="Write a message..." onChange={updateNewMessage}/>
+                    <div className={classes.sendButton} onClick={sendMessage}>
                         <img alt={`sendImg`} className={classes.sendImg}
                              src="https://www.flaticon.com/svg/static/icons/svg/1388/1388995.svg"/>
                     </div>
