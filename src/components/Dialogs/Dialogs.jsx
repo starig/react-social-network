@@ -6,7 +6,8 @@ import Message from "./Comps/Message";
 
 const Dialogs = (props) => {
 
-    let dialogsElements = props.state.dialogsData.map(dialog => <Dialog compName={dialog.name} id={dialog.id}
+    let dialogsElements = props.state.dialogsData.map(dialog => <Dialog compName={dialog.name}
+                                                                        id={dialog.id}
                                                                         avatarSrc={dialog.avatarSrc}/>);
 
     let messagesElements = props.state.messagesData.map(message => <Message compName={message.compName}
@@ -24,7 +25,6 @@ const Dialogs = (props) => {
         let text = newMessageElement.current.value;
         props.updateNewMessage(text);
     }
-
     return (
         <div className={classes.dialogs}>
             <div className={classes.dialog_items}>
@@ -37,7 +37,7 @@ const Dialogs = (props) => {
                 <footer className={classes.sendMessage}>
                     <input className={classes.sendInput}
                            ref={newMessageElement}
-                           value={props.newMessageText}
+                           value={props.newMessage}
                            placeholder="Write a message..." onChange={updateNewMessage}/>
                     <div className={classes.sendButton} onClick={sendMessage}>
                         <img alt={`sendImg`} className={classes.sendImg}
