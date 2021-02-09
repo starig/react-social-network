@@ -12,9 +12,8 @@ const Profile = (props) => {
             <Avatar />
             <UserInfo />
             <Posts postsData={props.state.postsData}
-                   addPost={props.addPost}
-                   newPostText={props.newPostText}
-                   updateNewPostText={props.updateNewPostText}
+                   newPostText={props.state.newPostText}
+                   dispatch={props.dispatch}
             />
         </div>
     );
