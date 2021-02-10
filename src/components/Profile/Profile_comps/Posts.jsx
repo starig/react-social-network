@@ -2,15 +2,14 @@ import React from 'react';
 import mainClasses from './../Profile.module.css';
 import classes from './Posts.module.css';
 import Post from './Posts/Post';
-import {addPostActionCreator, updateNewPostTextActionCreator} from './../../../Redux/State';
+import {addPostActionCreator, updateNewPostTextActionCreator} from './../../../Redux/profile-reducer';
 
 
 const Posts = (props) => {
 
-    let postsElements = props.postsData
-        .map(post => <Post message={post.message}
-                           likeCount={post.likesCount}
-                           commentCount={post.commentCount}/>);
+    let postsElements = props.postsData.map(post => <Post message={post.message}
+                                                          likeCount={post.likesCount}
+                                                          commentCount={post.commentCount}/>);
 
     let newPostElement = React.createRef();
 

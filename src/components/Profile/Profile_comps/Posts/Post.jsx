@@ -1,7 +1,8 @@
 import React from 'react';
 import classes from './Post.module.css';
 import likeSvg from './img/like.svg';
-import commentSvg from './img/comment.svg'
+import commentSvg from './img/comment.svg';
+
 
 const Post = (props) => {
     return (
