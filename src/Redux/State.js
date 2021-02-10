@@ -1,3 +1,7 @@
+import profileReducer from './profile-reducer';
+import dialogsReducer from './dialogs-reducer';
+
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
@@ -62,54 +66,10 @@ let store = {
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-    _addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0,
-            commentCount: 0,
-        }
-        this._state.profilePage.postsData.unshift(newPost);
-        this._callSubscriber(this._state);
-    },
-    _updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-    _sendMessage() {
-        let newMessage = {
-            id: 3,
-            compName: "You",
-            message: this._state.dialogsPage.newMessageText,
-            avatarSrc: "https://sun9-37.userapi.com/impg/To82glkn4N-kvUn-1I4Rbmq8NaZnXqHFOX1Wlg/glE5PZ9ishI.jpg?size=900x900&quality=96&proxy=1&sign=4e1eb3cf42a0377feec07cfcf3a79a05&type=album",
-        }
-        this._state.dialogsPage.messagesData.push(newMessage);
-        this._callSubscriber(this._state);
-    },
-    _updateNewMessage(newText) {
-        this._state.dialogsPage.newMessageText = newText;
-        this._callSubscriber(this._state);
-    },
     dispatch(action) {
-
-        switch(action.type) {
-            case ADD_POST:
-                this._addPost();
-                console.log('add post');
-                break;
-            case SEND_MESSAGE:
-                this._sendMessage();
-                console.log('send message');
-                break;
-            case UPDATE_NEW_POST_TEXT:
-                this._updateNewPostText(action.newText);
-                break;
-            case UPDATE_NEW_MESSAGE:
-                this._updateNewMessage(action.newText);
-                break;
-            default:
-                console.log('Error#1 : there is no this action type.');
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._callSubscriber(this._state);
     },
 }
 
