@@ -4,14 +4,12 @@ import UserInfo from './Profile_comps/UserInfo';
 import classes from './Profile.module.css';
 import PostsContainer from "./Profile_comps/PostsContainer";
 
-const Profile = (props) => {
-
-
+const Profile = () => {
     return (
         <div className={`${classes.profile}`}>
             <Avatar />
             <UserInfo />
-            <PostsContainer store={props.store}/>
+            <PostsContainer />
         </div>
     );
 }
