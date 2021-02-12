@@ -5,7 +5,6 @@ import Post from './Posts/Post';
 
 
 const Posts = (props) => {
-
     let postsElements = props.postsData.map(post => <Post message={post.message}
                                                           likeCount={post.likesCount}
                                                           commentCount={post.commentCount}/>);
@@ -18,7 +17,7 @@ const Posts = (props) => {
 
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText(text);
+        props.onPostChange(text);
     }
     return (
         <div className={`${mainClasses.Posts}`}>

@@ -37,7 +37,7 @@ const Dialogs = (props) => {
                 <footer className={classes.sendMessage}>
                     <input className={classes.sendInput}
                            ref={newMessageElement}
-                           value={props.newMessage}
+                           value={props.newMessageText}
                            placeholder="Write a message..." onChange={updateNewMessage}/>
                     <div className={classes.sendButton} onClick={sendMessage}>
                         <img alt={`sendImg`} className={classes.sendImg}
