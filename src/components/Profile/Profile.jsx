@@ -1,8 +1,8 @@
 import React from 'react';
 import Avatar from './Profile_comps/Avatar';
-import Posts from './Profile_comps/Posts';
 import UserInfo from './Profile_comps/UserInfo';
 import classes from './Profile.module.css';
+import PostsContainer from "./Profile_comps/PostsContainer";
 
 const Profile = (props) => {
 
@@ -11,10 +11,7 @@ const Profile = (props) => {
         <div className={`${classes.profile}`}>
             <Avatar />
             <UserInfo />
-            <Posts postsData={props.state.postsData}
-                   newPostText={props.state.newPostText}
-                   dispatch={props.dispatch}
-            />
+            <PostsContainer store={props.store}/>
         </div>
     );
 }
