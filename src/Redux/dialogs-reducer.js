@@ -44,6 +44,13 @@ let initialState = {
 
 
 const dialogsReducer = (state = initialState, action) => {
+
+    let stateCopy = {
+        ...state,
+        messagesData: [...state.messagesData],
+        newMessageText: {...state.newMessageText}
+    };
+
     switch(action.type) {
         case SEND_MESSAGE: {
             let newMessage = {
@@ -52,14 +59,10 @@ const dialogsReducer = (state = initialState, action) => {
                 message: state.newMessageText,
                 avatarSrc: "https://sun9-37.userapi.com/impg/To82glkn4N-kvUn-1I4Rbmq8NaZnXqHFOX1Wlg/glE5PZ9ishI.jpg?size=900x900&quality=96&proxy=1&sign=4e1eb3cf42a0377feec07cfcf3a79a05&type=album",
             }
-            let stateCopy = {...state};
-            stateCopy.messagesData = [...state.messagesData];
             stateCopy.messagesData.push(newMessage);
             return stateCopy;
         }
         case UPDATE_NEW_MESSAGE: {
-            let stateCopy = {...state};
-            stateCopy.newMessageText = {...state.newMessageText};
             stateCopy.newMessageText = action.newText;
             return stateCopy;
         }

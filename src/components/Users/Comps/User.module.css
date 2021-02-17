@@ -1,0 +1,93 @@
+.users {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+}
+
+.item {
+    display: grid;
+    grid-template-areas:
+    'avatar box'
+    ;
+    grid-template-columns: 2fr 10fr;
+    padding: 10px;
+    border: 1px solid #919191;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+/*Avatar*/
+
+.avatar {
+    grid-area: avatar;
+}
+
+.avatarImg {
+    width: 75px;
+    height: 75px;
+}
+
+.followButton {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: chartreuse;
+    width: 75px;
+    height: 30px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.followButton:hover {
+    background-color: #b0ff44;
+}
+
+
+.unfollowButton {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: crimson;
+    color: white;
+    width: 75px;
+    height: 30px;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.unfollowButton:hover {
+    background-color: #a9112e;
+}
+
+/*Box || Main information*/
+
+.box {
+    display: grid;
+    grid-template-areas:
+    'name'
+    'location'
+    'status'
+    ;
+    grid-template-rows: 1fr 1fr 2fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    grid-area: name;
+    color: #030356;
+}
+
+.location {
+    grid-area: location;
+    color: #686868;
+    font-size: 15px;
+    align-self: start;
+}
+
+.status {
+    grid-area: status;
+}
