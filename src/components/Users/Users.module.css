@@ -28,8 +28,7 @@
 
 .followButton {
     display: grid;
-    justify-content: center;
-    align-items: center;
+    place-content: center;
     text-transform: uppercase;
     background-color: chartreuse;
     width: 75px;
@@ -46,8 +45,7 @@
 
 .unfollowButton {
     display: grid;
-    justify-content: center;
-    align-items: center;
+    place-content: center;
     text-transform: uppercase;
     background-color: crimson;
     color: white;
@@ -72,8 +70,7 @@
     'status'
     ;
     grid-template-rows: 1fr 1fr 2fr;
-    align-items: center;
-    justify-content: center;
+    place-items: center;
 }
 
 .name {

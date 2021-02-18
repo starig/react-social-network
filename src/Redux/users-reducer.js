@@ -4,15 +4,14 @@ const SET_USERS = 'SET-USERS';
 
 
 let initialState = {
-    usersData: [
-        {
-            id: 1,
-            name: 'Ivan Starkov',
-            status: 'Hello world!',
-            location: {city: 'Saint-Petersburg', country: 'Russia'},
-            avatar: 'https://sun9-29.userapi.com/impg/1t7Rn5JZBywfXiXV5ErJwxZMrq8SJvPNsEfBTw/BcfMZx1jV9o.jpg?size=1080x1080&quality=96&proxy=1&sign=af86d3b8be3d796411fbc39899ead623&type=album',
-            followed: true,
-        },
+    usersData: [{
+        id: 1,
+        name: 'Ivan Starkov',
+        status: 'Hello world!',
+        location: {city: 'Saint-Petersburg', country: 'Russia'},
+        avatar: 'https://sun9-29.userapi.com/impg/1t7Rn5JZBywfXiXV5ErJwxZMrq8SJvPNsEfBTw/BcfMZx1jV9o.jpg?size=1080x1080&quality=96&proxy=1&sign=af86d3b8be3d796411fbc39899ead623&type=album',
+        followed: true,
+    },
         {
             id: 2,
             name: 'Andrey Ten',
@@ -30,15 +29,16 @@ let initialState = {
             followed: false,
         },
         {
-            id: 3,
+            id: 4,
             name: 'Alexander Maraktaev',
-            status: 'Doctor!',
-            location: {city: 'Khabarovsk', country: 'Russia'},
+            status: 'Gamer!',
+            location: {city: 'Ulan-Ude', country: 'Russia'},
             avatar: 'https://sun9-15.userapi.com/impg/xLRVxu5UIAbjCzYvSddpux12mt0RrxcSt22iSw/ueKE_olFwyI.jpg?size=607x607&quality=96&proxy=1&sign=fac2b7ce254b635fba2a54fdb1f7036c&type=album',
             followed: false,
         },
     ],
 }
+
 
 const usersReducer = (state = initialState, action) => {
 

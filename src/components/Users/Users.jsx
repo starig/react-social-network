@@ -1,21 +1,28 @@
 import React from 'react';
-import User from "./Comps/User";
-import styles from './Comps/User.module.css'
+import styles from './Users.module.css'
+
 
 let Users = (props) => {
-
-
-    let UsersElements = props.usersData.map(user => <User key={user.id}
-                                                          followed={user.followed}
-                                                          username={user.name}
-                                                          status={user.status}
-                                                          location={user.location.city + ', ' + user.location.country}
-                                                          avatar={user.avatar}/>);
-    return (
-        <div className={styles.users}>
-            {UsersElements}
-        </div>
-    );
+    return <div className={styles.users}>
+        {
+            props.usersData.map( user => <div key={user.id} className={styles.item}>
+                <div className={styles.avatar}>
+                    <img alt={`avatar`} src={user.avatar} className={styles.avatarImg}/>
+                    {
+                        user.followed
+                            ? <div className={styles.unfollowButton} onClick={() => {props.unfollow(user.id)}} >unfollow</div>
+                            : <div className={styles.followButton} onClick={() => {props.follow(user.id)}}>follow</div>
+                    }
+                </div>
+                <div className={styles.box}>
+                    <div className={styles.name}>{user.name}</div>
+                    <div className={styles.location}>{user.location.city + ', ' + user.location.country}</  div>
+                    <div className={styles.status}>{user.status}</div>
+                </div>
+            </div>
+            )
+        }
+    </div>
 }
 
 export default Users;
