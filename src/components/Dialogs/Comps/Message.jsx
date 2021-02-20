@@ -7,6 +7,10 @@ const Message = (props) => {
     let hours = date.getHours();
     let minutes = date.getMinutes();
 
+    if (minutes < 10) {
+        minutes = '0' + minutes;
+    }
+
     return (
         <div className={`${classes.messages}`}>
             <div className={`${classes.message}`}>

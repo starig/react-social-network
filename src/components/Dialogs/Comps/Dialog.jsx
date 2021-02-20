@@ -8,6 +8,9 @@ const Dialog = (props) => {
     let date = new Date();
     let hours = date.getHours();
     let minutes = date.getMinutes();
+    if (minutes < 10) {
+        minutes = '0' + minutes;
+    }
     let path = "/dialogs/" + props.id;
     return (
         <div>
