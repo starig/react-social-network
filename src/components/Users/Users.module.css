@@ -88,3 +88,17 @@
 .status {
     grid-area: status;
 }
+
+/*Navigation*/
+
+.navigation {
+    display: flex;
+}
+
+.currentPage {
+    font-weight: 700;
+}
+
+.navItem {
+    cursor: pointer;
+}
