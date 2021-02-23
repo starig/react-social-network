@@ -1,0 +1,9 @@
+.img {
+    height: 100px;
+    width: auto;
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+}

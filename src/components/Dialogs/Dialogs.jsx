@@ -5,54 +5,50 @@ import Message from './Comps/Message';
 
 
 
-class Dialogs extends React.Component {
-    dialogsElements = this.props.dialogsData.map(dialog => <Dialog compName={dialog.name}
-                                                                  key={dialog.id}
-                                                                  id={dialog.id}
-                                                                  avatarSrc={dialog.avatarSrc}/>);
+const Dialogs = (props) => {
 
-    messagesElements = this.props.messagesData.map(message => <Message compName={message.compName}
-                                                                      key={message.id}
-                                                                      message={message.message}
-                                                                      avatarSrc={message.avatarSrc}/>);
+    let dialogsElements = props.dialogsData.map(dialog => <Dialog compName={dialog.name}
+                                                                   key={dialog.id}
+                                                                   id={dialog.id}
+                                                                   avatarSrc={dialog.avatarSrc}/>);
 
-    newMessageElement = React.createRef();
+    let messagesElements = props.messagesData.map(message => <Message compName={message.compName}
+                                                                       key={message.id}
+                                                                       message={message.message}
+                                                                       avatarSrc={message.avatarSrc}/>);
 
-    sendMessage = () => {
-        this.props.sendMessage();
+    let newMessageElement = React.createRef();
+
+    let sendMessage = () => {
+        props.sendMessage();
     }
 
-    updateNewMessage = () => {
-        let text = this.newMessageElement.current.value;
-        this.props.updateNewMessage(text);
+    let updateNewMessage = () => {
+        let text = newMessageElement.current.value;
+        props.updateNewMessage(text);
     }
 
-
-    render() {
-        return (
-            <div className={classes.dialogs}>
-                <div className={classes.dialog_items}>
-                    {this.dialogsElements}
-                </div>
-                <div className={classes.messages}>
-                    <div className={classes.messages__items}>
-                        {this.messagesElements}
-                    </div>
-                    <footer className={classes.sendMessage}>
-                        <input className={classes.sendInput}
-                               ref={this.newMessageElement}
-                               value={this.props.newMessageText}
-                               placeholder="Write a message..." onChange={this.updateNewMessage}/>
-                        <div className={classes.sendButton} onClick={this.sendMessage}>
-                            <img alt={`sendImg`} className={classes.sendImg}
-                                 src="https://www.flaticon.com/svg/static/icons/svg/1388/1388995.svg"/>
-                        </div>
-                    </footer>
-                </div>
+    return <div className={classes.dialogs}>
+        <div className={classes.dialog_items}>
+            {dialogsElements}
+        </div>
+        <div className={classes.messages}>
+            <div className={classes.messages__items}>
+                {messagesElements}
             </div>
-
-        );
-    }
+            <footer className={classes.sendMessage}>
+                <input className={classes.sendInput}
+                       ref={newMessageElement}
+                       value={props.newMessageText}
+                       placeholder="Write a message..." onChange={updateNewMessage}/>
+                <div className={classes.sendButton} onClick={sendMessage}>
+                    <img alt={`sendImg`} className={classes.sendImg}
+                         src="https://www.flaticon.com/svg/static/icons/svg/1388/1388995.svg"/>
+                </div>
+            </footer>
+        </div>
+    </div>
 }
+
 
 export default Dialogs;
