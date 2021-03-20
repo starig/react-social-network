@@ -2,6 +2,7 @@ import React from 'react';
 import styles from "./Users.module.css";
 import userPhoto from "../../assets/img/avatarDefault.png";
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
 let Users = (props) => {
 
@@ -12,42 +13,65 @@ let Users = (props) => {
         pages.push(i);
     }
 
+
     return <div className={styles.users}>
 
         {
-            props.usersData.map(user => <div key={user.id}  className={styles.item}>
-                    <div className={styles.avatar}>
-                        <NavLink to={'/profile/' + user.id}>
-                            <img alt={`avatar`} src={user.photos.small != null
-                                ? user.photos.small : userPhoto} className={styles.avatarImg}/>
-                        </NavLink>
-                        {
-                            user.followed
-                                ? <div className={styles.unfollowButton} onClick={() => {
-                                    props.unfollow(user.id)
-                                }}>unfollow</div>
+            props.usersData.map(user => <div key={user.id} className={styles.item}>
+                <div className={styles.avatar}>
+                    <NavLink to={'/profile/' + user.id}>
+                        <img alt={`avatar`} src={user.photos.small != null
+                            ? user.photos.small : userPhoto} className={styles.avatarImg}/>
+                    </NavLink>
+                    {
+                        user.followed
+                            ? <div className={styles.unfollowButton} onClick={() => {
+
+                                axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
+                                    withCredentials: true,
+                                    headers: {
+                                        "API-KEY": "26804047-f33d-4429-9080-2160da856fee",
+                                    },
+                                }).then(response => {
+                                    if (response.data.resultCode === 0) {
+                                        props.unfollow(user.id);
+                                    }
+                                });
+
+                            }}>unfollow</div>
                                 : <div className={styles.followButton} onClick={() => {
-                                    props.follow(user.id)
-                                }}>follow</div>
-                        }
-                    </div>
-                    <div className={styles.box}>
+
+                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
+                                withCredentials: true,
+                                headers: {
+                                "API-KEY": "26804047-f33d-4429-9080-2160da856fee",
+                            },
+                            }).then(response => {
+                                if (response.data.resultCode === 0) {
+                                props.follow(user.id);
+                            }
+                            });
+
+                            }}>follow</div>
+                            }
+                        </div>
+                        <div className={styles.box}>
                         <div className={styles.name}>{user.name}</div>
                         <div className={styles.location}>{`user.location.city + ', ' + user.location.country`}</div>
                         <div className={styles.status}>{user.status}</div>
-                    </div>
-                </div>
-            )
-        }
-        <div className={styles.navigation}>
-            {pages.map(page => {
-                return <div className={`${props.currentPage === page && styles.currentPage} ${styles.navItem}`}
-                            onClick={() => {
-                                props.onPageChanged(page)
-                            }}>{page}</div>
-            })}
-        </div>
-    </div>
-}
+                        </div>
+                        </div>
+                        )
+                        }
+                        <div className={styles.navigation}>
+                    {pages.map(page => {
+                        return <div className={`${props.currentPage === page && styles.currentPage} ${styles.navItem}`}
+                        onClick={() => {
+                        props.onPageChanged(page)
+                    }}>{page}</div>
+                    })}
+                        </div>
+                        </div>
+                    }
 
-export default Users;
+                    export default Users;
