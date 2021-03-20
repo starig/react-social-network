@@ -18,6 +18,4 @@ const Avatar = (props) => {
     );
 }
 
-//TODO Сделать описание(статус, контакты и т.п)
-
 export default Avatar;

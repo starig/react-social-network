@@ -12,7 +12,7 @@
 .UserInfo__header {
     display: grid;
     grid-area: ui-header;
-    grid-template-columns: 11fr 1fr;
+    grid-template-columns: 1fr 1fr;
     border-bottom: 2px solid rgb(168, 168, 168);
 }
 
@@ -25,6 +25,21 @@
 }
 .user__status {
     color: rgb(88, 88, 88);
+    justify-self: end;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    place-content: start;
+}
+
+.user__status__yes {
+    color: #6eff36;
+    font-weight: 700;
+}
+
+.user__status__no {
+    color: #ff1b40;
+    font-weight: 700;
 }
 
 .UserInfo__main {

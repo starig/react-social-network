@@ -1,22 +1,31 @@
 import React from 'react';
 import classes from './UserInfo.module.css';
-import mainClasses from './../Profile.module.css'
+import Preloader from "../../common/Preloader";
 
-const UserInfo = () => {
+const UserInfo = (props) => {
+    if(!props.profile) {
+        return <Preloader />
+    }
     return (
         <div className={`${classes.UserInfo}`}>
             <div className={`${classes.UserInfo__header}`}>
                 <div className={`${classes.user__name}`}>
-                    Ivan Starkov
-                    <div className={`${classes.user__subtitle}`}>Hello world!</div>
+                    {props.profile.fullName}
+                    <div className={`${classes.user__subtitle}`}>{props.profile.lookingForAJobDescription}</div>
                 </div>
-                <div className={`${classes.user__status}`}>Online</div>
+                <div className={`${classes.user__status}`}>
+                    Looking for a job: {props.profile.lookingForAJob ?
+                    <div className={`${classes.user__status__yes}`}>Yes</div>
+                    : <div className={`${classes.user__status__no}`}>No</div>}
+                </div>
             </div>
             <div className={`${classes.UserInfo__main}`}>
                 <div className={`${classes.UserInfo__ul}`}>
                     <div className={`${classes.UserInfo__li}`}>
-                        <div className={`${classes.UserInfo__li__title}`}>Education: </div>
-                        <div className={`${classes.UserInfo__li__subtitle}`}>ITMO University</div>
+                        <div className={`${classes.UserInfo__li__title}`}>VK: </div>
+                        <div className={`${classes.UserInfo__li__subtitle}`}>
+                            <a href={'https://' + props.profile.contacts.vk}>VK</a>
+                        </div>
                     </div>
                     <div className={`${classes.UserInfo__li}`}>
                         <div className={`${classes.UserInfo__li__title}`}>Age: </div>
@@ -29,23 +38,23 @@ const UserInfo = () => {
                 </div>
             </div>
             <div className={`${classes.UserInfo__footer}`}>
-                <a href="" className={`${classes.UserInfo__footer__item}`}>
+                <a href="#" className={`${classes.UserInfo__footer__item}`}>
                     <div className={`${classes.item__count}`}>168</div>
                     <div className={`${classes.label}`}>Friends</div>
                 </a>
-                <a href="" className={`${classes.UserInfo__footer__item}`}>
+                <a href="#" className={`${classes.UserInfo__footer__item}`}>
                     <div className={`${classes.item__count}`}>200</div>
                     <div className={`${classes.label}`}>Followers</div>
                 </a>
-                <a href="" className={`${classes.UserInfo__footer__item}`}>
+                <a href="#" className={`${classes.UserInfo__footer__item}`}>
                     <div className={`${classes.item__count}`}>8</div>
                     <div className={`${classes.label}`}>Photos</div>
                 </a>
-                <a href="" className={`${classes.UserInfo__footer__item}`}>
+                <a href="#" className={`${classes.UserInfo__footer__item}`}>
                     <div className={`${classes.item__count}`}>75</div>
                     <div className={`${classes.label}`}>Groups</div>
                 </a>
-                <a href="" className={`${classes.UserInfo__footer__item}`}>
+                <a href="#" className={`${classes.UserInfo__footer__item}`}>
                     <div className={`${classes.item__count}`}>1023</div>
                     <div className={`${classes.label}`}>Tracks</div>
                 </a>
