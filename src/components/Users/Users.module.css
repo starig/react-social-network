@@ -38,6 +38,7 @@
     border-radius: 5px;
 }
 
+
 .followButton:hover {
     background-color: #b0ff44;
 }
@@ -58,6 +59,11 @@
 
 .unfollowButton:hover {
     background-color: #a9112e;
+}
+
+.disabledButton {
+    pointer-events: none;
+    background-color: #919191;
 }
 
 /*Box || Main information*/

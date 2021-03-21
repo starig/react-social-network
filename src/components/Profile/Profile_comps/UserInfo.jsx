@@ -1,11 +1,7 @@
 import React from 'react';
 import classes from './UserInfo.module.css';
-import Preloader from "../../common/Preloader";
 
 const UserInfo = (props) => {
-    if(!props.profile) {
-        return <Preloader />
-    }
     return (
         <div className={`${classes.UserInfo}`}>
             <div className={`${classes.UserInfo__header}`}>
