@@ -3,19 +3,12 @@ import Dialogs from "./Dialogs";
 import {connect} from "react-redux";
 import * as React from "react";
 
-
-
-/*class DialogsContainer extends React.Component {
-    render() {
-        return <Dialogs />
-    }
-}*/
-
 let mapStateToProps = (state) => {
     return {
         dialogsData: state.dialogsPage.dialogsData,
         messagesData: state.dialogsPage.messagesData,
         newMessageText: state.dialogsPage.newMessageText,
+        isAuth: state.auth.isAuth,
     }
 }
 

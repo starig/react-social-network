@@ -9,6 +9,7 @@ const Profile = (props) => {
     if(!props.profile) {
         return <Preloader />
     }
+
     return (
         <div className={`${classes.profile}`}>
             <Avatar profile={props.profile}/>
