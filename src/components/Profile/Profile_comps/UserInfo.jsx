@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './UserInfo.module.css';
+import ProfileStatus from "./ProfileStatus";
 
 const UserInfo = (props) => {
     return (
@@ -7,7 +8,7 @@ const UserInfo = (props) => {
             <div className={`${classes.UserInfo__header}`}>
                 <div className={`${classes.user__name}`}>
                     {props.profile.fullName}
-                    <div className={`${classes.user__subtitle}`}>{props.profile.lookingForAJobDescription}</div>
+                    <ProfileStatus status={'Hello, I like Shrek'} />
                 </div>
                 <div className={`${classes.user__status}`}>
                     Looking for a job: {props.profile.lookingForAJob ?
