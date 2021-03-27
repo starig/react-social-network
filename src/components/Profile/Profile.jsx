@@ -13,7 +13,7 @@ const Profile = (props) => {
     return (
         <div className={`${classes.profile}`}>
             <Avatar profile={props.profile}/>
-            <UserInfo profile={props.profile}/>
+            <UserInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
             <PostsContainer />
         </div>
     );

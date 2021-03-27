@@ -8,7 +8,7 @@ const UserInfo = (props) => {
             <div className={`${classes.UserInfo__header}`}>
                 <div className={`${classes.user__name}`}>
                     {props.profile.fullName}
-                    <ProfileStatus status={'Hello, I like Shrek'} />
+                    <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
                 </div>
                 <div className={`${classes.user__status}`}>
                     Looking for a job: {props.profile.lookingForAJob ?
@@ -19,17 +19,17 @@ const UserInfo = (props) => {
             <div className={`${classes.UserInfo__main}`}>
                 <div className={`${classes.UserInfo__ul}`}>
                     <div className={`${classes.UserInfo__li}`}>
-                        <div className={`${classes.UserInfo__li__title}`}>VK: </div>
+                        <div className={`${classes.UserInfo__li__title}`}>VK:</div>
                         <div className={`${classes.UserInfo__li__subtitle}`}>
                             <a href={'https://' + props.profile.contacts.vk}>VK</a>
                         </div>
                     </div>
                     <div className={`${classes.UserInfo__li}`}>
-                        <div className={`${classes.UserInfo__li__title}`}>Age: </div>
+                        <div className={`${classes.UserInfo__li__title}`}>Age:</div>
                         <div className={`${classes.UserInfo__li__subtitle}`}>18</div>
                     </div>
                     <div className={`${classes.UserInfo__li}`}>
-                        <div className={`${classes.UserInfo__li__title}`}>City: </div>
+                        <div className={`${classes.UserInfo__li__title}`}>City:</div>
                         <div className={`${classes.UserInfo__li__subtitle}`}>Saint-Petersburg</div>
                     </div>
                 </div>
