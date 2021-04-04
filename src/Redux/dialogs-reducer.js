@@ -1,5 +1,4 @@
 const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
 
 let initialState = {
     dialogsData: [
@@ -39,7 +38,6 @@ let initialState = {
             avatarSrc: "https://sun9-44.userapi.com/impg/u4-77d53Dqs4n7YRPscKJDBEhYbdbDKw92HnvA/t0u5YfebLU0.jpg?size=492x599&quality=96&proxy=1&sign=91959ae67a0251734844d91f63656f94&type=album"
         },
     ],
-    newMessageText: '',
 }
 
 
@@ -56,14 +54,10 @@ const dialogsReducer = (state = initialState, action) => {
             let newMessage = {
                 id: 3,
                 compName: "You",
-                message: state.newMessageText,
+                message: action.newMessageBody,
                 avatarSrc: "https://sun9-37.userapi.com/impg/To82glkn4N-kvUn-1I4Rbmq8NaZnXqHFOX1Wlg/glE5PZ9ishI.jpg?size=900x900&quality=96&proxy=1&sign=4e1eb3cf42a0377feec07cfcf3a79a05&type=album",
             }
             stateCopy.messagesData.push(newMessage);
-            return stateCopy;
-        }
-        case UPDATE_NEW_MESSAGE: {
-            stateCopy.newMessageText = action.newText;
             return stateCopy;
         }
         default:
@@ -71,13 +65,9 @@ const dialogsReducer = (state = initialState, action) => {
     }
 }
 
-export const sendMessageActionCreator = () => ({
+export const sendMessageActionCreator = (newMessageBody) => ({
     type: SEND_MESSAGE,
-});
-
-export const updateNewMessageActionCreator = (newText) => ({
-    type: UPDATE_NEW_MESSAGE,
-    newText: newText,
+    newMessageBody
 });
 
 export default dialogsReducer;

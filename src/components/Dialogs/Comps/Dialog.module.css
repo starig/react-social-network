@@ -18,6 +18,7 @@
 .dialog:hover {
     cursor: pointer;
     background-color: #BCC2C8;
+    color: black;
 }
 
 .dialog.active {

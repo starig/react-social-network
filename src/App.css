@@ -1,5 +1,5 @@
 .app__wrapper {
-    width: 1200px;
+    max-width: 1200px;
     display: grid;
     margin: 0 auto;
     grid-gap: 1em;
@@ -17,8 +17,6 @@
 }
 
 .btn {
-    height: 30px;
-    font-size: 20px;
     text-align: center;
 }
 

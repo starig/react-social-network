@@ -3,10 +3,27 @@ import classes from './Dialogs.module.css';
 import Dialog from './Comps/Dialog';
 import Message from './Comps/Message';
 import {Redirect} from 'react-router-dom';
+import {Field, reduxForm} from "redux-form";
 
+const AddMessageForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field component={'input'} name={'newMessageBody'} className={classes.sendInput}
+                   value={props.newMessageText}
+                   autocomplete="off"
+                   placeholder="Write a message..."/>
+            <div className={classes.sendButton}>
+                <button >
+                    send
+                </button>
+            </div>
+        </form>
+    )
+}
+
+const AddMessageReduxForm = reduxForm({form: 'dialogAddMessageForm'})(AddMessageForm);
 
 const Dialogs = (props) => {
-
     let dialogsElements = props.dialogsData.map(dialog => <Dialog compName={dialog.name}
                                                                    key={dialog.id}
                                                                    id={dialog.id}
@@ -17,17 +34,9 @@ const Dialogs = (props) => {
                                                                        message={message.message}
                                                                        avatarSrc={message.avatarSrc}/>);
 
-    let newMessageElement = React.createRef();
-
-    let sendMessage = () => {
-        props.sendMessage();
+    let addNewMessage = (values) => {
+        props.sendMessage(values.newMessageBody);
     }
-
-    let updateNewMessage = () => {
-        let text = newMessageElement.current.value;
-        props.updateNewMessage(text);
-    }
-
     if (!props.isAuth) {
         return <Redirect to={`/login`} />
     }
@@ -41,18 +50,13 @@ const Dialogs = (props) => {
                 {messagesElements}
             </div>
             <footer className={classes.sendMessage}>
-                <input className={classes.sendInput}
-                       ref={newMessageElement}
-                       value={props.newMessageText}
-                       placeholder="Write a message..." onChange={updateNewMessage}/>
-                <div className={classes.sendButton} onClick={sendMessage}>
-                    <img alt={`sendImg`} className={classes.sendImg}
-                         src="https://www.flaticon.com/svg/static/icons/svg/1388/1388995.svg"/>
-                </div>
+                <AddMessageReduxForm onSubmit={addNewMessage}/>
             </footer>
         </div>
     </div>
 }
+
+
 
 
 export default Dialogs;
