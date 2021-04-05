@@ -4,16 +4,22 @@ import Dialog from './Comps/Dialog';
 import Message from './Comps/Message';
 import {Redirect} from 'react-router-dom';
 import {Field, reduxForm} from "redux-form";
+import {Input} from "../common/FormsControls/FormsControls";
+import {maxLengthCreator, required} from "../../utils/validators/validators";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+const maxMessageLength = maxLengthCreator(100);
 const AddMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <Field component={'input'} name={'newMessageBody'} className={classes.sendInput}
-                   value={props.newMessageText}
+            <Field component={Input}
+                   validate={[required, maxMessageLength]}
+                   name={'newMessageBody'}
                    autocomplete="off"
                    placeholder="Write a message..."/>
             <div className={classes.sendButton}>
-                <button >
+                <button className={`btn btn-primary`}>
                     send
                 </button>
             </div>

@@ -3,7 +3,11 @@ import mainClasses from './../Profile.module.css';
 import classes from './Posts.module.css';
 import Post from './Posts/Post';
 import {Field, reduxForm} from "redux-form";
+import {maxLengthCreator, required} from "../../../utils/validators/validators";
+import {Input} from "../../common/FormsControls/FormsControls";
 
+
+const maxLength50 = maxLengthCreator(50);
 
 const AddNewPostForm = (props) => {
     return (
@@ -12,11 +16,10 @@ const AddNewPostForm = (props) => {
                 <div className={`${classes.Posts__input}`}>
                     <div className={`${classes.Posts__new__title}`}>New post</div>
                     <div className={`${classes.Posts__new__subtitle}`}>
-                        <Field component={'input'}
+                        <Field component={Input}
                                name={'newPostText'}
-                               className={`${classes.Post__input}`}
                                placeholder={`It is my new post!`}
-                               autocomplete="off"/>
+                               autocomplete="off" validate={[required, maxLength50]}/>
                     </div>
                     <button className={`${mainClasses.btn} ${classes.btn__send}`}>send</button>
                 </div>

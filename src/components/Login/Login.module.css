@@ -1,0 +1,8 @@
+.loginForm {
+    display: grid;
+    place-items: center;
+}
+
+.loginTitle {
+    text-transform: uppercase;
+}
