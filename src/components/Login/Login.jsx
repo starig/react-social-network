@@ -7,7 +7,7 @@ import styles from './Login.module.css';
 import {connect} from "react-redux";
 import {login} from "../../Redux/auth-reducer";
 import {Redirect} from "react-router-dom";
-
+import formStyle from "./../common/FormsControls/FormsControls.module.css";
 
 const LoginForm = (props) => {
     return (
@@ -35,6 +35,10 @@ const LoginForm = (props) => {
                 <Field component={Input} name={'rememberMe'}  type="checkbox" className="form-check-input" id="exampleCheck1"/>
                 <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
             </div>
+            {props.error && <div className={`alert alert-danger ${formStyle.alertContainer}`} role="alert">
+                {props.error}
+            </div>}
+
             <button type="submit" className="btn btn-outline-primary">Submit</button>
         </form>
     )
